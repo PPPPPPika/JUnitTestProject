@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 //@WebMvcTest(MainController.class)
 //@RunWith(SpringRunner.class)
-//ContextConfiguration(locations={"/api/addition"})
 @SpringBootTest
 class MainControllerTest {
 
@@ -45,7 +44,7 @@ class MainControllerTest {
 
     static class ArgumentsProvider implements org.junit.jupiter.params.provider.ArgumentsProvider {
         @Override
-        public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
+        public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
             return Stream.of(
                     Arguments.of(new Operation(null, null, 0, 2, 3)),
                     Arguments.of(new Operation(null, null, 0, 1, 1)),

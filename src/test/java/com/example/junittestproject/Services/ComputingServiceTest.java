@@ -1,6 +1,8 @@
 package com.example.junittestproject.Services;
 
 import com.example.junittestproject.Models.Operation;
+import com.example.junittestproject.Reposytorys.OperationRepository;
+import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +11,11 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsSource;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,6 +27,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class ComputingServiceTest {
+    @Mock
+    private OperationRepository operationRepository;
+
+    @InjectMocks
     private final ComputingService computingService;
 
     @Autowired
@@ -37,7 +48,7 @@ class ComputingServiceTest {
         System.out.println("Finish test-process");
     }*/
 
-    @BeforeEach
+    /*@BeforeEach
     void someData2(){
         System.out.println("Test is run");
     }
@@ -45,6 +56,11 @@ class ComputingServiceTest {
     @AfterEach
     void someData3(){
         System.out.println("Test is finish");
+    }*/
+
+    @Before
+    public void init() {
+        MockitoAnnotations.openMocks(this);
     }
 
     //@Disabled
